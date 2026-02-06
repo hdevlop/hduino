@@ -1,0 +1,444 @@
+
+import * as Blockly from 'blockly/core';
+
+Blockly.Msg.ARRAY_CREATE_EMPTY_TITLE = 'empty!';
+Blockly.Msg.tab_create = "create element block for array %1'";
+Blockly.Msg.tab_create_fix = "create block 'set element in array %1 to'";
+Blockly.Msg.ARRAY_CREATE_WITH = "set with";
+Blockly.Msg.ARRAY_taille = "size";
+Blockly.Msg.ARRAY_contenu = "contain";
+Blockly.Msg.ARRAY_dim = "size of ";
+Blockly.Msg.ARRAY_index = "index";
+Blockly.Msg._AT = "to";
+Blockly.Msg.ARRAY_CREATE_WITH = "created with";
+Blockly.Msg.ARRAY_CREATE_WITH_CONTAINER_TITLE_ADD = "array";
+Blockly.Msg.ARRAY_CREATE_WITH_CONTAINER_TOOLTIP = "Add, remove, or reorder sections to reconfigure this array block.";
+Blockly.Msg.ARRAY_CREATE_WITH_HELPURL = "";
+Blockly.Msg.ARRAY_CREATE_WITH_INPUT_WITH = "an array";
+Blockly.Msg.ARRAY_CREATE_WITH_ITEM_TITLE = "item";
+Blockly.Msg.ARRAY_CREATE_WITH_ITEM_TOOLTIP = "Add an item to the array.";
+Blockly.Msg.ARRAY_CREATE_WITH_TOOLTIP = "Create a array with any number of items.";
+Blockly.Msg.ARRAY_GETINDEX_AT = "get index";
+Blockly.Msg.ARRAY_GETINDEX_AT1 = "get index";
+Blockly.Msg.ARRAY_GETINDEX_AT2 = "index";
+Blockly.Msg.ARRAY_GETINDEX_HELPURL = "";
+Blockly.Msg.ARRAY_GETINDEX_ITEM = "in Array";
+Blockly.Msg.ARRAY_GETINDEX_TOOLTIP = "";
+Blockly.Msg.ARRAY_GETINDEX_TOOLTIP1 = "retourne la valeur stockée dans la liste ou tableau";
+Blockly.Msg.ARRAY_GETINDEX_TOOLTIP2 = "créé une liste ou tableau du type sélectionné";
+Blockly.Msg.ARRAY_GETINDEX_TOOLTIP3 = "fixe un (ou plusieurs) élément(s) de la liste ou tableau à la (aux) valeur(s) indiquée(s)";
+Blockly.Msg.ARRAY_CREATE = "define ";
+Blockly.Msg.ARRAY_TAILLE = "size";
+Blockly.Msg.ARRAY_CONTIENT = "with";
+Blockly.Msg.ARRAY_LIST = "list";
+Blockly.Msg.ARRAY_ARRAY = "array";
+Blockly.Msg.ARRAY_fixe = "change element at position";
+Blockly.Msg.ARRAY_DECLARE_NAME = "create array";
+Blockly.Msg.ARRAY_DECLARE_TYPE = "type";
+Blockly.Msg.ARRAY_DECLARE_SIZE = "number of elements";
+Blockly.Msg.ARRAY_DECLARE_TOOLTIP = "create an array of specific type and number of elements";
+Blockly.Msg.ARRAY_MODIFY_INDICE = "set element nb";
+Blockly.Msg.ARRAY_MODIFY_NAME = "in array";
+Blockly.Msg.ARRAY_MODIFY_VALUE = "value";
+Blockly.Msg.ARRAY_MODIFY_TOOLTIP = "set a specific value to an elemnt of an array";
+
+//ESK 6/13/2015 SWITCH CASE
+Blockly.Msg.CONTROLS_SWITCH_CASEBREAK_TOOLTIP = "Add a condition to the case block.";
+Blockly.Msg.CONTROLS_SWITCH_DEFAULT_TOOLTIP = "Add a final, catch-all condition to the if block.";
+Blockly.Msg.CONTROLS_SWITCH_HELPURL = "https://en.wikipedia.org/wiki/Switch_statement";
+Blockly.Msg.CONTROLS_SWITCH_SWITCH_TOOLTIP = "Add, remove, or reorder sections to reconfigure this if block.";
+Blockly.Msg.CONTROLS_SWITCH_VAR_TITLE = "Switch (";
+Blockly.Msg.CONTROLS_SWITCH_VAR_TAIL = ")";
+Blockly.Msg.CONTROLS_SWITCH_MSG_DEFAULT = "default";
+Blockly.Msg.CONTROLS_SWITCH_MSG_CASEBREAK = "case";
+Blockly.Msg.CONTROLS_SWITCH_MSG_SWITCHVAR = "Switch (var)";
+Blockly.Msg.CONTROLS_SWITCH_MSG_DO = "do";
+Blockly.Msg.CONTROLS_SWITCH_TOOLTIP_1 = "If a value is true, then do some statements.";
+Blockly.Msg.CONTROLS_SWITCH_TOOLTIP_2 = "If a value is true, then do the first block of statements. Otherwise, do the second block of statements.";
+Blockly.Msg.CONTROLS_SWITCH_TOOLTIP_3 = "If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements.";
+Blockly.Msg.CONTROLS_SWITCH_TOOLTIP_4 = "If the first value is true, then do the first block of statements. Otherwise, if the second value is true, do the second block of statements. If none of the values are true, do the last block of statements.";
+Blockly.Msg.CONTROLS_SWITCH_VAR_TOOLTIP = "Drag from the left into here to add";
+Blockly.Msg.CONTROLS_SWITCH_CASEBREAK_TOOLTIP = "Add additional case break do";
+Blockly.Msg.CONTROLS_SWITCH_DEFAULT_TOOLTIP = "Add optional default action";
+
+Blockly.Msg.TEXT_CHAR_TOOLTIP = "character value that takes up 1 byte of memory";
+Blockly.Msg.TEXT_CHAR_HELPURL = "https://www.arduino.cc/reference/en/language/variables/data-types/string/";
+Blockly.Msg.TEXT_COMPARE_STRING_HELPURL = "";
+Blockly.Msg.TEXT_COMPARE_STRING_TEXT = "Comparison of the two chains: ";
+Blockly.Msg.TEXT_COMPARE_STRING_TEXT2 = " = ";
+Blockly.Msg.TEXT_COMPARE_STRING_TOOLTIP = "Lets you know if two strings are identical or not.";
+
+Blockly.Msg.TEXT_LENGTH_TITLE = "length of %1",
+Blockly.Msg.TEXT_ISEMPTY_TITLE = "%1 is empty",
+
+
+    //july 9th function from JP Fontaine workspace
+    Blockly.Msg.PROCEDURES_DEFRETURN_FUNCTION = "for function";
+Blockly.Msg.PROCEDURES_DEFRETURN_TYPE = "type";
+
+Blockly.Msg.VARIABLES_AS = "as";
+Blockly.Msg.VARIABLES_SET_CONST = "constant";
+Blockly.Msg.VARIABLES_SET_CONST_AT = "set";
+Blockly.Msg.VARIABLES_SET_CONST_TOOLTIP = "set a variable to non modifiable value";
+Blockly.Msg.VARIABLES_SET_CONST_HELPURL = "https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/const/";
+Blockly.Msg.ARD_TYPE_ARRAY = "Array";
+Blockly.Msg.ARD_TYPE_BOOL = "Boolean";
+Blockly.Msg.ARD_TYPE_CHAR = "Character";
+Blockly.Msg.ARD_TYPE_ARRAY_CHAR = "Character array";
+Blockly.Msg.ARD_TYPE_CHILDBLOCKMISSING = "ChildBlockMissing";
+Blockly.Msg.ARD_TYPE_DECIMAL = "Decimal";
+Blockly.Msg.ARD_TYPE_LONG = "Large Number";
+Blockly.Msg.ARD_TYPE_NULL = "Null";
+Blockly.Msg.ARD_TYPE_NUMBER = "Number";
+Blockly.Msg.ARD_TYPE_SHORT = "Short Number (byte)";
+Blockly.Msg.ARD_TYPE_TEXT = "Text";
+Blockly.Msg.ARD_TYPE_UNDEF = "Undefined";
+Blockly.Msg.ARD_TYPE_UNS_NUMBER = "Unsigned number";
+Blockly.Msg.ARD_TYPE_UNS_LONG = "Unsigned Long Number";
+Blockly.Msg.ARD_TYPE_VOLATILE = "Volatile integer";
+
+
+//**********************************Dropdown menus messages***********************************************
+
+Blockly.Msg.FIELDDROPDOWN = [["HIGH", "HIGH"], ["LOW", "LOW"]];
+Blockly.Msg.FIELDDROPDOWN_ONOFF = [["ON", "ON"], ["OFF", "OFF"]];
+Blockly.Msg.FIELDDROPDOWN_0_1 = [["HAUT", "HIGH"], ["BAS", "LOW"]];
+Blockly.Msg.ligne = [["1", "1"], ["2", "2"]];
+Blockly.Msg.colonne = [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["14", "14"], ["14", "14"], ["15", "15"], ["16", "16"]];
+Blockly.Msg.FIELDDROPDOWN_av_ar = [["avant", "HIGH"], ["arrière", "LOW"]];
+Blockly.Msg.INOUT_HIGH_LEVEL = "1 -> HIGH";
+Blockly.Msg.INOUT_LOW_LEVEL = "0 -> low";
+Blockly.Msg.WII_JOY_DROPDOWN = [["horizontal", "H"], ["vertical", "V"]];
+Blockly.Msg.WII_ACCEL_DROPDOWN = [["X", "X"], ["Y", "Y"], ["Z", "Z"]];
+Blockly.Msg.WII_ACCEL_BUTTON = [["C", "C"], ["Z", "Z"]];
+Blockly.Msg.WII_ACCEL_BUTTON_STATE = [["pressed", "PRESSED"], ["released", "RELEASED"]];
+
+//**********************************FieldInstance messages***********************************************
+Blockly.Msg.COMPONENT_WARN = "A %1 configuration block with the same '%2' name must be added to use this block!";
+
+Blockly.Msg.SOFTSERIAL_COMPONENT = 'softserial';
+Blockly.Msg.STEPPER_COMPONENT = 'stepper';
+Blockly.Msg.NEOPIXEL_COMPONENT = 'Neopixel';
+Blockly.Msg.SERVO_COMPONENT = 'servomotor';
+Blockly.Msg.SERVO_DEFAULT_NAME = "SERVO";
+Blockly.Msg.SHARP_IR_COMPONENT = 'Sharp IR';
+
+
+//**********************************blocks***********************************************
+//**********************************blocks***********************************************
+//**********************************blocks***********************************************
+
+// Ardublockly instances
+Blockly.Msg.NEW_INSTANCE = 'New Instance';
+Blockly.Msg.RENAME_INSTANCE = 'Rename Instance';
+Blockly.Msg.NEW_INSTANCE_TITLE = 'New Instance Name:';
+Blockly.Msg.RENAME_INSTANCE_TITLE = 'Rename all "%1" instances to:';
+
+Blockly.Msg.ARDUINO_BASE_DELAY_HELPURL = "http://arduino.cc/en/Reference/delay";
+Blockly.Msg.ARDUINO_BASE_DELAY_DELAY_TIME = "delay (in ms)";
+Blockly.Msg.ARDUINO_BASE_DELAY_DELAY_TIME_SEC = "delay (in s)";
+Blockly.Msg.ARDUINO_BASE_DELAY_TOOLTIP = "specify the pause time in milliseconds";
+Blockly.Msg.ARDUINO_BASE_SETUP = "Setup";
+Blockly.Msg.ARDUINO_BASE_SETUP_HELPURL = "https://www.arduino.cc/en/Reference/Setup";
+Blockly.Msg.ARDUINO_BASE_LOOP = "Arduino loop forever:";
+Blockly.Msg.ARDUINO_BASE_SETUP_LOOP_HELPURL = "https://www.arduino.cc/en/Reference/Loop";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_HELPURL = "https://www.arduino.cc/en/Reference/Millis";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED = "time (in ms) since program started";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_SEC = "time (in s) since program started";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_TOOLTIP = "Number of milliseconds since the program started (unsigned long)";
+Blockly.Msg.ARDUINO_BETWEEN = "random number between";
+Blockly.Msg.ARDUINO_BETWEEN_AND = "and";
+Blockly.Msg.ARDUINO_BASE_MAP_HELPURL = "http://arduino.cc/en/Reference/map";
+Blockly.Msg.ARDUINO_BASE_MAP_NUM = "to the transposed ";
+Blockly.Msg.ARDUINO_BASE_MAP_DMAX = "over a range of [0-";
+Blockly.Msg.ARDUINO_BASE_MAP_TOOLTIP = "transfer a value on a scale from 0 to 1023 to another scale";
+Blockly.Msg.ARDUINO_BASE_CODE = "Coding";
+Blockly.Msg.ARDUINO_BASE_COMMENT_HELPURL = "https://www.arduino.cc/reference/en/language/structure/further-syntax/blockcomment/";
+Blockly.Msg.ARDUINO_BASE_COMMENT_TEXT = "comment";
+Blockly.Msg.ARDUINO_BASE_CONST = "define";
+Blockly.Msg.ARDUINO_BASE_DEFINE_HELPURL = "https://www.arduino.cc/en/Reference/Define";
+Blockly.Msg.ARDUINO_BASE_DEFINE = "Define";
+Blockly.Msg.ARDUINO_BASE_DEFINE_TOOLTIP = "Define constants & librairies";
+Blockly.Msg.ARDUINO_BASE_DEFINE_CONST_HELPURL = "https://www.arduino.cc/en/Reference/Define";
+Blockly.Msg.ARDUINO_BASE_DEFINE_CONST_INPUT1 = "define variable";
+Blockly.Msg.ARDUINO_BASE_DEFINE_CONST_INPUT2 = "as";
+Blockly.Msg.ARDUINO_BASE_DEFINE_CONST_TOOLTIP = "allows the programmer to give a name to a constant value before the program is compiled";
+Blockly.Msg.ARDUINO_BASE_END = 'wait forever (END of program)';
+Blockly.Msg.ARDUINO_BASE_BEGIN_TOOLTIP = "help to show start and end of a program";
+Blockly.Msg.ARDUINO_BASE_BEGIN = "START program";
+Blockly.Msg.ARDUINO_BASE_TEMPO1 = "when";
+Blockly.Msg.ARDUINO_BASE_TEMPO2 = "elapsed";
+Blockly.Msg.ARDUINO_BASE_TEMPO_TIME = [["microsecondes", "us"], ["millisecondes", "ms"], ["secondes", "s"]];
+Blockly.Msg.ARDUINO_BASE_TEMPO_TOOLTIP = "Verify if interval of time is elapsed, if so do instructions.";
+Blockly.Msg.ARDUINO_BASE_TEMPO_HELPURL = "http://www.mon-club-elec.fr/pmwiki_reference_arduino/pmwiki.php?n=Main.ExempleBlinkWithoutDelay";
+Blockly.Msg.ARDUINO_BASE_TOGGLE = "toggle PIN state";
+Blockly.Msg.ARDUINO_BASE_TOGGLE_TOOLTIP = "Toggle :\nwrite logic state 0 if was 1, or 1 if was 1, on PIN#";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_FILE_TEXT = "Inclure un fichier";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_FILE_NAME = "Nom du fichier";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_FILE_TOOLTIP = "Permet d'inclure un fichier contenu dans le repertoire de travail";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_FILE_HELPURL = "https://www.arduino.cc/reference/en/language/structure/further-syntax/include/";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_LIB_TEXT = "include librarie";
+Blockly.Msg.ARDUINO_BASE_INCLUDE_LIB_TOOLTIP = " include outside libraries in your sketch";
+Blockly.Msg.ARDUINO_CONSTRAIN = "constrain";
+Blockly.Msg.ARDUINO_CONSTRAIN_X = " number";
+Blockly.Msg.ARDUINO_CONSTRAIN_A = "from A = ";
+Blockly.Msg.ARDUINO_CONSTRAIN_B = "to B = ";
+Blockly.Msg.ARDUINO_CONSTRAIN_HELPURL = 'http://arduino.cc/en/Reference/Constrain';
+Blockly.Msg.ARDUINO_CONSTRAIN_TOOLTIP = 'Constrains a number to be within a range.';
+Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_HELPURL = "http://arduino.cc/en/Reference/DigitalWrite";
+Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_INPUT = "put the LEDs on the card to logic";
+Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_TOOLTIP = "off or turn on the LED on the Arduino board";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_HELPURL = "http://arduino.cc/en/Reference/DigitalWrite";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_INPUT1 = "put the pin Digital";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_INPUT2 = "to logic state";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_TOOLTIP = "write a 0 or 1 state numeric on a specific output";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_HELPURL = "http://arduino.cc/en/Reference/DigitalRead";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_INPUT = "the logic state of the digital pin";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_TOOLTIP = "reading the digital state 0 or 1 of the digital pin";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_PULL_UP = "pull up";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_PULL_UP_TOOLTIP = "reading the digital state 0 or 1 of the digital pin\npull-up option to check";
+Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
+Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_INPUT1 = "write on pin PWM~";
+Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_INPUT2 = "value";
+Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_TOOLTIP = "send a value between 0 and 255 on a specific output \nWARNING verify the No. on the board !";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_INPUT1 = "write about Analog pin";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_INPUT2 = "value";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_TOOLTIP = "send a value between 0 and 255 on a specific output";
+Blockly.Msg.ARDUINO_TONE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
+Blockly.Msg.ARDUINO_TONE_INPUT1 = "emits sound on the pin";
+Blockly.Msg.ARDUINO_TONE_INPUT2 = "on frequency (Hz)";
+Blockly.Msg.ARDUINO_TONE_INPUT3 = "for a time (ms)";
+Blockly.Msg.ARDUINO_TONE_TOOLTIP = "emits sound on the selected pin";
+Blockly.Msg.ARDUINO_NOTONE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
+Blockly.Msg.ARDUINO_NOTONE_INPUT = "stop sound on the pin";
+Blockly.Msg.ARDUINO_NOTONE_TOOLTIP = "mutes the sound on the selected pin";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_HELPURL = "http://arduino.cc/en/Reference/AnalogRead";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_INPUT = "read value on the analog input";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_TOOLTIP = "returns a value between 0 and 1023";
+Blockly.Msg.ARDUINO_INOUT_ONOFF_HELPURL = "http://arduino.cc/en/Reference/Constants";
+Blockly.Msg.ARDUINO_INOUT_STATE = "state";
+Blockly.Msg.ARDUINO_INOUT_ANGLE = "angle";
+Blockly.Msg.ARDUINO_INOUT_ANGLE_TOOLTIP = "angle entre 0 et 360°";
+Blockly.Msg.ARDUINO_INOUT_ANGLE_HELPURL = "https://developers.google.com/blockly/guides/create-custom-blocks/fields/built-in-fields/angle";
+Blockly.Msg.ARDUINO_PULSEIN = "PulseIn (µs) pin#";
+Blockly.Msg.ARDUINO_PULSEIN_TIMEOUT = "timeout (µs) ";
+Blockly.Msg.ARDUINO_SERVO_MOVE_HELPURL = "http://www.arduino.cc/playground/ComponentLib/servo";
+Blockly.Msg.ARDUINO_SERVO_MOVE_INPUT1 = "Rotate the Servo motor";
+Blockly.Msg.ARDUINO_SERVO_MOVE_IMAGE = "images/a991.jpg";
+Blockly.Msg.ARDUINO_SERVO_MOVE_INPUT2 = "on the pin";
+Blockly.Msg.ARDUINO_SERVO_MOVE_DEGREE = "an angle (0~180°) of";
+Blockly.Msg.ARDUINO_SERVO_MOVE_DELAY_TIME = "during a period (ms)";
+Blockly.Msg.ARDUINO_SERVO_MOVE_TOOLTIP = "rotation possible between 0 ~ 180 degrees";
+Blockly.Msg.ARDUINO_SERVO_READ_DEGREES_HELPURL = "http://www.arduino.cc/playground/ComponentLib/servo";
+Blockly.Msg.ARDUINO_SERVO_READ_DEGREES_INPUT1 = "the angle of the servo motor";
+Blockly.Msg.ARDUINO_SERVO_READ_DEGREES_IMAGE = "images/a991.jpg";
+Blockly.Msg.ARDUINO_SERVO_READ_DEGREES_INPUT2 = "connected on the pin";
+Blockly.Msg.ARDUINO_SERVO_READ_DEGREES_TOOLTIP = "returns the number of degrees the last rotation";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_HELPURL = "https://www.arduino.cc/en/Reference/ServoWrite";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_TEXT = "turn continuous servomotor";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_INPUT1 = "PIN#";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_INPUT2 = "speed [0~180]";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_INPUT3 = "speed [0~90]";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_INPUT4 = "direction";
+Blockly.Msg.ARDUINO_SERVO_ROT_CONTINUE_TOOLTIP = "degrees for power : 0° -> max on left | 90° -> stop | 180° -> max on right";
+Blockly.Msg.ARDUINO_SERVO_PIN = "PIN#";
+Blockly.Msg.ARDUINO_SERVO_ATTACH1 = "Attach Servomotor";
+Blockly.Msg.ARDUINO_SERVO_ATTACH2 = "Assign Name";
+Blockly.Msg.ARDUINO_SERVO_ATTACHED = "Servomotor attached?";
+Blockly.Msg.ARDUINO_SERVO_DETACH = "Detach Servomotor";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_HELPURL = "http://www.arduino.cc/en/Serial/Print";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_CONTENT = "send the data to the serial port:";
+Blockly.Msg.ARDUINO_SERIAL_PRINTLN_CONTENT = "print new line data on serial port:";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_TAB_CONTENT = "print with tab data on serial port:";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_TOOLTIP = "sends data over the serial port for sruvaillance by the monitor in ASCII";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_TEXT = "print text on serial port :";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_NUMBER = "with this following number :";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_NEW_LINE = "and go to a new line ?";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_NUMBER = "Afficher sur le port Série :";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_NEWLINE = "Nouvelle ligne?";
+Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_FIELDDROPDOWN = [["oui", "true"], ["non", "false"]];
+
+Blockly.Msg.LKL_ATTACHINTERRUPT_PIN = "attachInterrupt pin#";
+Blockly.Msg.LKL_DETACHINTERRUPT_PIN = "detachInterrupt pin#";
+Blockly.Msg.LKL_TOOLTIP_INOUT_ATTACHINTERRUPT = 'Attachs interrupt to a specific Port';
+Blockly.Msg.LKL_TOOLTIP_INOUT_DETACHINTERRUPT = 'Detachs interrupt to a specific Port';
+Blockly.Msg.LKL_MODE = 'mode';
+Blockly.Msg.LKL_DROPDOWN = [['RISING', "RISING"], ['FALLING', "FALLING"], ['CHANGE', "CHANGE"], ['LOW', "LOW"]];
+
+//SERIAL
+Blockly.Msg.Serial_Init = "Serial communication init speed";
+Blockly.Msg.Serial_Print = "Serial Print console";
+Blockly.Msg.Serial_Write = "Serial write";
+Blockly.Msg.Serial_write_out = "Write";
+Blockly.Msg.Serial_Print_Format = "Print  Format";
+Blockly.Msg.Serial_Print_ForDecimal = "decimal";
+Blockly.Msg.Serial_Print_ForHexa = "hexadecimal";
+Blockly.Msg.Serial_Print_ForBin = "binary";
+Blockly.Msg.Serial_Print_ForOct = "octal";
+Blockly.Msg.Serial_read = "Serial Read";
+Blockly.Msg.Serial_avai = "Serial Available?";
+Blockly.Msg.Serial_flush = "Serial flush";
+Blockly.Msg.Serial_line = "line break";
+Blockly.Msg.Serial_line_tooltip = "insert a line break in serial monitor";
+Blockly.Msg.ARDUINO_SERIAL_READSTRINGUNTIL_HELPURL = "https://www.arduino.cc/en/Serial/ReadStringUntil";
+Blockly.Msg.ARDUINO_SERIAL_READSTRINGUNTIL_CONTENT = "String read until";
+Blockly.Msg.ARDUINO_SERIAL_READSTRINGUNTIL_TOOLTIP = "reads characters from the serial buffer into a string";
+
+//SOFTWARE SERIAL
+Blockly.Msg.SSERIAL_DEFAULT_NAME = "SoftSerial";
+Blockly.Msg.SSERIAL_Init = "INIT";
+Blockly.Msg.SSERIAL_SPEED = "speed";
+Blockly.Msg.SSERIAL_TX = "TX#";
+Blockly.Msg.SSERIAL_RX = "RX#";
+Blockly.Msg.SSERIAL_Read = "SoftwareSerial Read";
+Blockly.Msg.SSERIAL_Print = "SoftwareSerial Print";
+Blockly.Msg.SSERIAL_Write = "SoftwareSerial Write";
+Blockly.Msg.SSERIAL_Avai = "SoftwareSerial Available?";
+
+//VARIABLES
+Blockly.Msg.ARDUINO_VAR_DECLARE = "Declare";
+Blockly.Msg.ARDUINO_VAR_AS = "as";
+Blockly.Msg.ARDUINO_VAR_VAL = "value";
+
+//Conversions
+Blockly.Msg.CONV_tochar = "Convert to char ";
+Blockly.Msg.CONV_tobyte = "Convert to Byte ";
+Blockly.Msg.CONV_toint = "Convert to Int ";
+Blockly.Msg.CONV_tofloat = "Convert to Float ";
+Blockly.Msg.CONV_toString = "Convert to String ";
+Blockly.Msg.CONVERSION_MAP_HELPURL = "https://www.arduino.cc/en/Reference/Map";
+Blockly.Msg.CONVERSION_MAP_NUM = "re-maps value";
+Blockly.Msg.CONVERSION_MAP_IN_MIN = "from low";
+Blockly.Msg.CONVERSION_MAP_IN_MAX = "and from Max";
+Blockly.Msg.CONVERSION_MAP_OUT_MIN = "to low";
+Blockly.Msg.CONVERSION_MAP_OUT_MAX = "and to Max";
+Blockly.Msg.CONVERSION_MAP_TOOLTIP = "re-maps a number from one range to another";
+
+
+// Ardublockly strings
+Blockly.Msg.ARD_ANALOGREAD = "read analog pin#";
+Blockly.Msg.ARD_ANALOGREAD_TIP = "Return value between 0 and 1024";
+Blockly.Msg.ARD_ANALOGWRITE = "set analog pin#";
+Blockly.Msg.ARD_ANALOGWRITE_TIP = "Write analog value between 0 and 255 to a specific PWM Port";
+Blockly.Msg.ARD_BUILTIN_LED = "set built-in LED";
+Blockly.Msg.ARD_BUILTIN_LED_TIP = "Light on or off for the built-in LED of the Arduino";
+Blockly.Msg.ARD_COMPONENT_WARN1 = "A %1 configuration block with the same %2 name must be added to use this block!";
+Blockly.Msg.ARD_DEFINE = "Define";
+Blockly.Msg.ARD_DIGITALREAD = "read digital pin#";
+Blockly.Msg.ARD_DIGITALREAD_TIP = "Read digital value on a pin: HIGH or LOW";
+Blockly.Msg.ARD_DIGITALWRITE = "set digitial pin#";
+Blockly.Msg.ARD_DIGITALWRITE_TIP = "Write digital value HIGH or LOW to a specific Port";
+Blockly.Msg.ARD_FUN_RUN_LOOP = "Arduino loop forever:";
+Blockly.Msg.ARD_FUN_RUN_SETUP = "Arduino run first:";
+Blockly.Msg.ARD_FUN_RUN_TIP = "Defines the Arduino setup() and loop() functions.";
+Blockly.Msg.ARD_HIGH = "HIGH";
+Blockly.Msg.ARD_HIGHLOW_TIP = "Set a pin state logic High or Low.";
+Blockly.Msg.ARD_LOW = "LOW";
+Blockly.Msg.ARD_MAP = "Map";
+Blockly.Msg.ARD_MAP_TIP = "Re-maps a number from [0-1024] to another.";
+Blockly.Msg.ARD_MAP_VAL = "value to [0-";
+Blockly.Msg.ARD_NOTONE = "Turn off tone on pin #";
+Blockly.Msg.ARD_NOTONE_PIN = "No tone PIN#";
+Blockly.Msg.ARD_NOTONE_PIN_TIP = "Stop generating a tone on a pin";
+Blockly.Msg.ARD_NOTONE_TIP = "Turns the tone off on the selected pin";
+Blockly.Msg.ARD_PIN_WARN1 = "Pin %1 is needed for %2 as pin %3. Already used as %4.";
+Blockly.Msg.ARD_PULSETIMEOUT_TIP = "Measures the duration of a pulse on the selected pin, if it is within the time-out in microseconds.";
+Blockly.Msg.ARD_PULSE_READ = "measure %1 pulse on pin #%2";
+Blockly.Msg.ARD_PULSE_READ_TIMEOUT = "measure %1 pulse on pin #%2 (timeout after %3 μs)";
+Blockly.Msg.ARD_PULSE_TIP = "Measures the duration of a pulse on the selected pin.";
+Blockly.Msg.ARD_SERIAL_BPS = "bps";
+Blockly.Msg.ARD_SERIAL_PRINT = "print";
+Blockly.Msg.ARD_SERIAL_PRINT_NEWLINE = "add new line";
+Blockly.Msg.ARD_SERIAL_PRINT_TIP = "Prints data to the console/serial port as human-readable ASCII text.";
+Blockly.Msg.ARD_SERIAL_PRINT_WARN = "A setup block for %1 must be added to the workspace to use this block!";
+Blockly.Msg.ARD_SERIAL_SETUP = "Setup";
+Blockly.Msg.ARD_SERIAL_SETUP_TIP = "Selects the speed for a specific Serial peripheral";
+Blockly.Msg.ARD_SERIAL_SPEED = ":  speed to";
+Blockly.Msg.ARD_SERVO_READ = "read SERVO from PIN#";
+Blockly.Msg.ARD_SERVO_READ_TIP = "Read a Servo angle";
+Blockly.Msg.ARD_SERVO_WRITE = "set SERVO from Pin";
+Blockly.Msg.ARD_SERVO_WRITE_DEG_180 = "Degrees (0~180)";
+Blockly.Msg.ARD_SERVO_WRITE_TIP = "Set a Servo to an specified angle";
+Blockly.Msg.ARD_SERVO_WRITE_TO = "to";
+Blockly.Msg.ARD_SETTONE = "Set tone on pin #";
+Blockly.Msg.ARD_SPI_SETUP = "Setup";
+Blockly.Msg.ARD_SPI_SETUP_CONF = "configuration:";
+Blockly.Msg.ARD_SPI_SETUP_DIVIDE = "clock divide";
+Blockly.Msg.ARD_SPI_SETUP_LSBFIRST = "LSBFIRST";
+Blockly.Msg.ARD_SPI_SETUP_MODE = "SPI mode (idle - edge)";
+Blockly.Msg.ARD_SPI_SETUP_MODE0 = "0 (Low - Falling)";
+Blockly.Msg.ARD_SPI_SETUP_MODE1 = "1 (Low - Rising)";
+Blockly.Msg.ARD_SPI_SETUP_MODE2 = "2 (High - Falling)";
+Blockly.Msg.ARD_SPI_SETUP_MODE3 = "3 (High - Rising)";
+Blockly.Msg.ARD_SPI_SETUP_MSBFIRST = "MSBFIRST";
+Blockly.Msg.ARD_SPI_SETUP_SHIFT = "data shift";
+Blockly.Msg.ARD_SPI_SETUP_TIP = "Configures the SPI peripheral.";
+Blockly.Msg.ARD_SPI_TRANSRETURN_TIP = "Send a SPI message to an specified slave device and get data back.";
+Blockly.Msg.ARD_SPI_TRANS_NONE = "none";
+Blockly.Msg.ARD_SPI_TRANS_SLAVE = "to slave pin";
+Blockly.Msg.ARD_SPI_TRANS_TIP = "Send a SPI message to an specified slave device.";
+Blockly.Msg.ARD_SPI_TRANS_VAL = "transfer";
+Blockly.Msg.ARD_SPI_TRANS_WARN1 = "A setup block for %1 must be added to the workspace to use this block!";
+Blockly.Msg.ARD_SPI_TRANS_WARN2 = "Old pin value %1 is no longer available.";
+Blockly.Msg.ARD_STEPPER_COMPONENT = "stepper";
+Blockly.Msg.ARD_STEPPER_DEFAULT_NAME = "MyStepper";
+Blockly.Msg.ARD_STEPPER_FOUR_PINS = "4";
+Blockly.Msg.ARD_STEPPER_MOTOR = "stepper motor:";
+Blockly.Msg.ARD_STEPPER_NUMBER_OF_PINS = "Number of pins";
+Blockly.Msg.ARD_STEPPER_PIN1 = "pin1#";
+Blockly.Msg.ARD_STEPPER_PIN2 = "pin2#";
+Blockly.Msg.ARD_STEPPER_PIN3 = "pin3#";
+Blockly.Msg.ARD_STEPPER_PIN4 = "pin4#";
+Blockly.Msg.ARD_STEPPER_REVOLVS = "how many steps per revolution";
+Blockly.Msg.ARD_STEPPER_SETUP = "Setup stepper motor";
+Blockly.Msg.ARD_STEPPER_SETUP_TIP = "Configures a stepper motor pinout and other settings.";
+Blockly.Msg.ARD_STEPPER_SPEED = "set speed (rpm) to";
+Blockly.Msg.ARD_STEPPER_STEP = "move stepper";
+Blockly.Msg.ARD_STEPPER_STEPS = "steps";
+Blockly.Msg.ARD_STEPPER_STEP_TIP = "Turns the stepper motor a specific number of steps.";
+Blockly.Msg.ARD_STEPPER_TWO_PINS = "2";
+Blockly.Msg.ARD_TIME_DELAY = "wait";
+Blockly.Msg.ARD_TIME_DELAY_MICROS = "microseconds";
+Blockly.Msg.ARD_TIME_DELAY_MICRO_TIP = "Wait specific time in microseconds";
+Blockly.Msg.ARD_TIME_DELAY_TIP = "Wait specific time in milliseconds";
+Blockly.Msg.ARD_TIME_INF = "wait forever (end program)";
+Blockly.Msg.ARD_TIME_INF_TIP = "Wait indefinitely, stopping the program.";
+Blockly.Msg.ARD_TIME_MICROS = "current elapsed Time (microseconds)";
+Blockly.Msg.ARD_TIME_MICROS_TIP = "Returns the number of microseconds since the Arduino board began running the current program. Has to be stored in a positive long integer";
+Blockly.Msg.ARD_TIME_MILLIS = "current elapsed Time (milliseconds)";
+Blockly.Msg.ARD_TIME_MILLIS_TIP = "Returns the number of milliseconds since the Arduino board began running the current program. Has to be stored in a positive long integer";
+Blockly.Msg.ARD_TIME_MS = "milliseconds";
+Blockly.Msg.ARD_TONEFREQ = "at frequency";
+Blockly.Msg.ARD_TONE_FREQ = "frequency";
+Blockly.Msg.ARD_TONE_PIN = "Tone PIN#";
+Blockly.Msg.ARD_TONE_PIN_TIP = "Generate audio tones on a pin";
+Blockly.Msg.ARD_TONE_TIP = "Sets tone on pin to specified frequency within range 31 - 65535";
+Blockly.Msg.ARD_TONE_WARNING = "Frequency must be in range 31 - 65535";
+Blockly.Msg.ARD_TYPE_ARRAY = "Array";
+Blockly.Msg.ARD_TYPE_BOOL = "Boolean";
+Blockly.Msg.ARD_TYPE_CHAR = "Character";
+Blockly.Msg.ARD_TYPE_CHILDBLOCKMISSING = "ChildBlockMissing";
+Blockly.Msg.ARD_TYPE_DECIMAL = "Decimal";
+Blockly.Msg.ARD_TYPE_LONG = "Large Number";
+Blockly.Msg.ARD_TYPE_NULL = "Null";
+Blockly.Msg.ARD_TYPE_NUMBER = "Number";
+Blockly.Msg.ARD_TYPE_SHORT = "Short Number";
+Blockly.Msg.ARD_TYPE_TEXT = "Text";
+Blockly.Msg.ARD_TYPE_UNDEF = "Undefined";
+Blockly.Msg.ARD_VAR_AS = "as";
+Blockly.Msg.ARD_VAR_AS_TIP = "Sets a value to a specific type";
+Blockly.Msg.ARD_WRITE_TO = "to";
+Blockly.Msg.NEW_INSTANCE = "New instance...";
+Blockly.Msg.NEW_INSTANCE_TITLE = "New instance name:";
+Blockly.Msg.RENAME_INSTANCE = "Rename instance...";
+Blockly.Msg.RENAME_INSTANCE_TITLE = "Rename all '%1' instances to:";
+
+//******** pbra 20160607 PinMode
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_HELPURL = "https://www.arduino.cc/en/Reference/PinMode";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_INPUT1 = "Set Pin Mode for pin";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_INPUT2 = "to";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_DROPDOWN = [["INPUT", "INPUT"], ["OUTPUT", "OUTPUT"], ["INPUT_PULLUP", "INPUT_PULLUP"]];
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_TOOLTIP = "Configures the specified pin to behave either as an input or an output";
+
+
