@@ -1,3 +1,0 @@
-module.exports=[48721,a=>{"use strict";var b=a.i(9881);a.i(44935);var c=a.i(78794),d=a.i(23275),e=a.i(81754),f=a.i(95259),g=a.i(3091);function h(){return(0,b.jsxs)(b.Fragment,{children:[(0,b.jsxs)("main",{className:"w-full justify-center px-4 py-8 md:px-8",children:[(0,b.jsx)(d.ErrorDisplay,{}),(0,b.jsx)(c.EmptyState,{}),(0,b.jsx)(e.ProjectList,{})]}),(0,b.jsx)(f.ProjectDialog,{}),(0,b.jsx)(g.DeleteConfirmDialog,{})]})}a.s(["default",()=>h])}];
-
-//# sourceMappingURL=apps_web_src_app_%28home%29_projects_page_tsx_dd67c5b9._.js.map
