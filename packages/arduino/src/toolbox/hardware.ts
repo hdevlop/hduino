@@ -123,7 +123,9 @@ const motorsCategory: ToolboxCategory = {
   cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
   contents: [
     { kind: 'block', type: 'motor_servo' },
-    { kind: 'block', type: 'DC_Motor' },
+    { kind: 'block', type: 'l293' },
+    { kind: 'block', type: 'L293_Motor_Shield_InitAll' },
+    { kind: 'block', type: 'L293_Motor_Shield' },
   ],
 };
 
