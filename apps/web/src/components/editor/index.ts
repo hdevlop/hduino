@@ -1,4 +1,5 @@
 export * from './Toolbar';
+export { TitleBar } from './TitleBar';
 export { CategorySidebar } from './Sidebar/CategorySidebar';
 export { CategoryItem } from './Sidebar/CategoryItem';
 export * from './Sidebar/CategoryIcons';

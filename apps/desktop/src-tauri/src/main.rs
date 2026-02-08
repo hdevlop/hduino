@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use tauri::{Listener, Manager, Url};
+use std::time::Instant;
 
 mod commands;
 
@@ -10,6 +11,10 @@ fn main() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
+            // Track splash start time for minimum display duration
+            let splash_start = Instant::now();
+            const MIN_SPLASH_DURATION_MS: u64 = 4000; // Minimum 2 seconds
+
             // Get handles to both windows
             let splash_window = app.get_webview_window("splash").unwrap();
             let main_window = app.get_webview_window("main").unwrap();
@@ -18,10 +23,12 @@ fn main() {
             #[cfg(dev)]
             let splash_url = "http://localhost:3000/splash.html";
             #[cfg(not(dev))]
-            let splash_url = "splash.html";
+            let splash_url = "tauri://localhost/splash.html";
 
             // Navigate splash to the correct URL
-            let _ = splash_window.navigate(Url::parse(splash_url).unwrap());
+            if let Err(e) = splash_window.navigate(Url::parse(splash_url).unwrap()) {
+                eprintln!("Failed to load splash screen: {}", e);
+            }
 
             // Handle main window close event - quit the entire app
             let app_handle = app.handle().clone();
@@ -37,12 +44,23 @@ fn main() {
 
             // Listen for "app-ready" event from the main window
             main_window.listen("app-ready", move |_event| {
-                // Show main window (ignore errors if already closed)
-                let _ = main.show();
-
-                // Small delay before closing splash to ensure smooth transition
                 let splash_clone = splash.clone();
+                let main_clone = main.clone();
+
                 tauri::async_runtime::spawn(async move {
+                    // Calculate elapsed time since splash started
+                    let elapsed = splash_start.elapsed().as_millis() as u64;
+
+                    // If minimum duration hasn't passed, wait for the remaining time
+                    if elapsed < MIN_SPLASH_DURATION_MS {
+                        let remaining = MIN_SPLASH_DURATION_MS - elapsed;
+                        tokio::time::sleep(tokio::time::Duration::from_millis(remaining)).await;
+                    }
+
+                    // Show main window and close splash
+                    let _ = main_clone.show();
+
+                    // Small delay for smooth transition
                     tokio::time::sleep(tokio::time::Duration::from_millis(150)).await;
                     let _ = splash_clone.close();
                 });

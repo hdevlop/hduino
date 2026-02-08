@@ -3,6 +3,7 @@
 import { useEditorStore } from '@/stores/editorStore';
 import { useAutoSave } from '@/hooks/useAutoSave';
 import { EditorToolbar } from '@/components/editor/Toolbar';
+import { TitleBar } from '@/components/editor/TitleBar';
 
 import { useEffect, useRef } from 'react';
 import { CategorySidebar, CodePanel, WorkspaceContainer, VariableDialog } from '@/components/editor';
@@ -69,6 +70,8 @@ export default function EditorPage() {
   return (
     <>
       <div className="h-screen w-screen flex flex-col overflow-hidden">
+        {/* Custom Title Bar (only visible in Tauri desktop app) */}
+        <TitleBar />
 
         <EditorToolbar
           project={project}
