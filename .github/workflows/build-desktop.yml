@@ -44,12 +44,18 @@ jobs:
       - name: Build workspace packages
         run: bunx turbo build --filter='./packages/*'
 
-      - name: Build desktop app
-        run: bun run build:desktop
+      - name: Build desktop app (Linux - deb only)
+        if: matrix.platform == 'ubuntu-22.04'
+        run: bun run build:desktop -- -- --bundles deb
         env:
           TAURI_SIGNING_PRIVATE_KEY: ''
           NO_STRIP: true
-          APPIMAGE_EXTRACT_AND_RUN: 1
+
+      - name: Build desktop app (Windows)
+        if: matrix.platform == 'windows-latest'
+        run: bun run build:desktop
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ''
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
