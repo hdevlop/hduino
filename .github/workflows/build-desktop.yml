@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Build arduino package
+        run: bun run build:arduino
+
       - name: Build desktop app
         run: bun run build:desktop
         env:
