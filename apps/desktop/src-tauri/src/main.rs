@@ -17,6 +17,7 @@ fn main() {
 
             // Get handles to both windows
             let splash_window = app.get_webview_window("splash").unwrap();
+            let _ = splash_window.center();
             let main_window = app.get_webview_window("main").unwrap();
 
             // Load splash screen URL (dev vs prod)

@@ -4,7 +4,7 @@ import { arduinoGenerator as Arduino, Order, PinTypes } from '../../arduino/gene
 Arduino.forBlock['Ultrasonic'] = function (block: Blockly.Block): string {
   const trigPin = block.getFieldValue('PIN0') || '2';
   const echoPin = block.getFieldValue('PIN1') || '3';
-  const name = block.getField('VAR')?.getText() || 'myUltrasonic';
+  const name = block.getField('VAR')?.getText() || 'Hc';
 
   Arduino.reservePin(block, trigPin, PinTypes.OUTPUT, 'Ultrasonic Trig');
   Arduino.reservePin(block, echoPin, PinTypes.INPUT, 'Ultrasonic Echo');
@@ -18,7 +18,7 @@ Arduino.forBlock['Ultrasonic'] = function (block: Blockly.Block): string {
 };
 
 Arduino.forBlock['Ultrasonic_read'] = function (block: Blockly.Block): [string, number] {
-  const name = block.getField('VAR')?.getText() || 'myUltrasonic';
+  const name = block.getField('VAR')?.getText() || 'Hc';
   Arduino.addVariable('var1' + name, `int Distance_${name};`, true);
   Arduino.addLoopCode('var2' + name, `Distance_${name} = ${name}.dist();`);
   return [`Distance_${name}`, Order.ATOMIC];

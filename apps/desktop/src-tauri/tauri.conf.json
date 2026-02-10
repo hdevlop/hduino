@@ -24,6 +24,8 @@
         "transparent": true,
         "alwaysOnTop": true,
         "skipTaskbar": true,
+        "shadow": false,
+        "backgroundColor": "#00000000",
         "visible": true
       },
       {
@@ -34,6 +36,7 @@
         "resizable": true,
         "decorations": false,
         "fullscreen": false,
+        "maximized": true,
         "center": true,
         "visible": false
       }

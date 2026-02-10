@@ -115,18 +115,67 @@ const sensorCategory: ToolboxCategory = {
   ],
 };
 
+const servoSubcategory: ToolboxCategory = {
+  kind: 'category',
+  name: 'Servo',
+  toolboxitemid: 'SERVO',
+  colour: CATEGORY_COLORS.motors,
+  cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
+  contents: [
+    { kind: 'block', type: 'motor_servo_init' },
+    { kind: 'block', type: 'motor_servo_write' },
+    { kind: 'block', type: 'motor_servo_attach' },
+    { kind: 'block', type: 'motor_servo_detach' },
+  ],
+};
+
+const l293Subcategory: ToolboxCategory = {
+  kind: 'category',
+  name: 'L293',
+  toolboxitemid: 'L293',
+  colour: CATEGORY_COLORS.motors,
+  cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
+  contents: [
+    { kind: 'block', type: 'l293_init' },
+    { kind: 'block', type: 'l293_movement' },
+    { kind: 'block', type: 'l293_set_speed' },
+  ],
+};
+
+const l293ShieldSubcategory: ToolboxCategory = {
+  kind: 'category',
+  name: 'L293 Shield',
+  toolboxitemid: 'L293_SHIELD',
+  colour: CATEGORY_COLORS.motors,
+  cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
+  contents: [
+    { kind: 'block', type: 'L293_Motor_Shield_InitAll' },
+    { kind: 'block', type: 'L293_Motor_Shield_Init' },
+    { kind: 'block', type: 'L293_Motor_Shield_Movement' },
+    { kind: 'block', type: 'L293_Motor_Shield_SetSpeed' },
+  ],
+};
+
+const l298Subcategory: ToolboxCategory = {
+  kind: 'category',
+  name: 'L298',
+  toolboxitemid: 'L298',
+  colour: CATEGORY_COLORS.motors,
+  cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
+  contents: [
+    { kind: 'block', type: 'l298_init' },
+    { kind: 'block', type: 'l298_movement' },
+    { kind: 'block', type: 'l298_set_speed' },
+  ],
+};
+
 const motorsCategory: ToolboxCategory = {
   kind: 'category',
   name: 'Motors',
   toolboxitemid: 'MOTORS',
   colour: CATEGORY_COLORS.motors,
   cssConfig: { container: 'Category', icon: 'customTreeIcon motors' },
-  contents: [
-    { kind: 'block', type: 'motor_servo' },
-    { kind: 'block', type: 'l293' },
-    { kind: 'block', type: 'L293_Motor_Shield_InitAll' },
-    { kind: 'block', type: 'L293_Motor_Shield' },
-  ],
+  contents: [servoSubcategory, l293Subcategory, l293ShieldSubcategory, l298Subcategory],
 };
 
 const switchCategory: ToolboxCategory = {

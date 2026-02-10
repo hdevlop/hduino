@@ -8,16 +8,13 @@ Blockly.Blocks['Ultrasonic'] = {
   init: function (this: Blockly.Block) {
     this.appendDummyInput()
       .appendField(new Blockly.FieldImage('/img/ico/ultrason_ico.png', 64, 45, '*'))
-      .appendField('Ultrasonic')
-      .appendField(new FieldVariableCreateOnly('myUltrasonic'), 'VAR');
+      .appendField(new FieldVariableCreateOnly('Hc'), 'VAR');
     this.appendDummyInput()
-      .appendField(Blockly.Msg.VARIABLES_SET_CONST)
-      .appendField('Trig   to')
-      .appendField(new Blockly.FieldDropdown(Arduino.AllPins), 'PIN0');
-    this.appendDummyInput()
-      .appendField(Blockly.Msg.VARIABLES_SET_CONST)
-      .appendField('Echo to')
+      .appendField('Pin Trig')
+      .appendField(new Blockly.FieldDropdown(Arduino.AllPins), 'PIN0')
+      .appendField('Pin Echo')
       .appendField(new Blockly.FieldDropdown(Arduino.AllPins), 'PIN1');
+
     this.setColour(CATEGORY_COLORS.sensors);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -37,7 +34,7 @@ Blockly.Blocks['Ultrasonic_read'] = {
     this.appendDummyInput()
       .appendField(new Blockly.FieldImage('/img/ico/ultrason_ico.png', 60, 45, '*'))
       .appendField('Distance Of')
-      .appendField(new FieldVariableCreateOnly('myUltrasonic'), 'VAR');
+      .appendField(new FieldVariableCreateOnly('Hc'), 'VAR');
     this.setOutput(true, 'Number');
     this.setTooltip(Blockly.Msg.ARD_DIGITALREAD_TIP);
   },

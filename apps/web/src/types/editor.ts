@@ -6,6 +6,7 @@ export interface BlockCategory {
   color: string;           // Background color (e.g., "#8B5CF6")
   hoverColor: string;      // Hover state color
   group: 'logic' | 'hardware';  // Category group for sidebar sections
+  children?: BlockCategory[];   // Optional subcategories for expandable categories
 }
 
 // Code panel state

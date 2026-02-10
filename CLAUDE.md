@@ -106,3 +106,57 @@ Uses **sonner** library for toast notifications:
 - Home button hidden on screens < 1024px (`lg:` breakpoint)
 - Toolbar items stack/hide based on screen size
 - Tailwind breakpoints: sm(640), md(768), lg(1024), xl(1280), 2xl(1536)
+
+## Motor Driver Blocks
+
+### L293 & L298 Block Structure
+Both motor drivers follow the same three-block pattern:
+- **Init block** (`l293_init`, `l298_init`) - Initializes motor with variable name and pins
+- **Movement block** (`l293_movement`, `l298_movement`) - Controls motor direction
+- **Set Speed block** (`l293_set_speed`, `l298_set_speed`) - Controls motor speed (requires EN pins)
+
+### Pin Naming Conventions
+- **L293**: Uses `MA1/MA2` for Motor A, `MB1/MB2` for Motor B
+- **L298**: Uses `MA1/MA2` for Motor A, `MB1/MB2` for Motor B
+- **Enable pins**: `ENA` for Motor A, `ENB` for Motor B (optional, for speed control)
+
+### Variable Naming System
+- Uses `FieldVariableCreateOnly` for kid-friendly variable management
+- Prevents accidental rename/delete from dropdown
+- Default variable name: `MT` (customizable)
+- Movement and speed blocks reference init block by variable name
+
+### Dynamic Motor Configuration
+- **Mutator** allows configuring 1 or 2 motors
+- **Optional EN pins** per motor for speed control
+- **Dynamic direction options**: Single motor shows Forward/Backward/Stop, dual motor adds Left/Right
+- Speed control validates EN pin presence and shows warning if missing
+
+### Generated Code Structure
+For a motor named `MT`:
+- Variables: `MTA1`, `MTA2`, `MTENA` (Motor A), `MTB1`, `MTB2`, `MTENB` (Motor B)
+- Functions: `MT_Forward()`, `MT_Backward()`, `MT_Left()`, `MT_Right()`, `MT_Stop()`
+- Speed variable: `MTSpeed` (shared between both motors)
+
+## Variable Management System
+
+### Variable Cleanup Behavior
+The `cleanupUnusedVariables()` function removes orphaned variables from the workspace:
+- **Detection method**: Scans all blocks using both `getVarModels()` and direct `FieldVariable` instance checks
+- **When it runs**:
+  - ✅ After loading a project (`loadWorkspaceXml`) - cleans up old orphaned variables
+  - ❌ NOT during workspace changes (`onChange`) - allows variable creation without immediate deletion
+  - ❌ NOT during auto-save - prevents deleting variables being created
+
+### Variable Creation Flow
+1. User drops motor block → default variable 'MT' created
+2. User clicks variable dropdown → selects "Create variable..."
+3. New variable created → persists during editing
+4. Auto-save triggers → variable NOT cleaned up (cleanup disabled during onChange)
+5. Project load → cleanup runs to remove truly orphaned variables from old saves
+
+### FieldVariableCreateOnly
+- Extends `Blockly.FieldVariable` with filtered dropdown
+- Removes "Rename variable..." and "Delete variable..." options
+- Allows creating new variables via "Create variable..." option
+- Used in motor driver blocks (L293, L298) for variable naming

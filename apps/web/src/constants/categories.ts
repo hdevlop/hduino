@@ -83,6 +83,24 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
     color: '#00979D',      // Teal
     hoverColor: '#007A83',
     group: 'hardware',
+    children: [
+      {
+        id: 'ard_basic',
+        name: 'ArdBasic',
+        icon: ArduinoIcon,
+        color: '#00979D',
+        hoverColor: '#007A83',
+        group: 'hardware',
+      },
+      {
+        id: 'ard_output',
+        name: 'IN / OUT',
+        icon: ArduinoIcon,
+        color: '#00979D',
+        hoverColor: '#007A83',
+        group: 'hardware',
+      },
+    ],
   },
   {
     id: 'time',
@@ -115,6 +133,40 @@ export const BLOCK_CATEGORIES: BlockCategory[] = [
     color: '#DC143C',      // Crimson
     hoverColor: '#C80828',
     group: 'hardware',
+    children: [
+      {
+        id: 'servo',
+        name: 'Servo',
+        icon: MotorsIcon,
+        color: '#DC143C',
+        hoverColor: '#C80828',
+        group: 'hardware',
+      },
+      {
+        id: 'l293',
+        name: 'L293',
+        icon: MotorsIcon,
+        color: '#DC143C',
+        hoverColor: '#C80828',
+        group: 'hardware',
+      },
+      {
+        id: 'l293_shield',
+        name: 'L293 Shield',
+        icon: MotorsIcon,
+        color: '#DC143C',
+        hoverColor: '#C80828',
+        group: 'hardware',
+      },
+      {
+        id: 'l298',
+        name: 'L298',
+        icon: MotorsIcon,
+        color: '#DC143C',
+        hoverColor: '#C80828',
+        group: 'hardware',
+      },
+    ],
   },
   {
     id: 'switch',
