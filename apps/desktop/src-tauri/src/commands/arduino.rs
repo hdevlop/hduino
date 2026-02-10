@@ -234,8 +234,11 @@ async fn init_bundled_data(app: &AppHandle) -> Result<(), ArduinoError> {
     let data_dir = get_data_dir(app)?;
     let avr_core_path = data_dir.join("packages/arduino/hardware/avr");
 
+    eprintln!("Checking AVR core at: {:?}", avr_core_path);
+
     // Check if AVR core already exists
     if avr_core_path.exists() {
+        eprintln!("AVR core already exists, skipping initialization");
         return Ok(());
     }
 
@@ -248,14 +251,37 @@ async fn init_bundled_data(app: &AppHandle) -> Result<(), ArduinoError> {
             e.to_string()
         )))?;
 
-    let bundled_data = resource_dir.join("arduino-data");
+    eprintln!("Resource directory: {:?}", resource_dir);
 
-    // Check if bundled data exists
-    if !bundled_data.exists() {
-        // No bundled data - log for debugging but don't fail
-        eprintln!("Bundled arduino-data not found at: {:?}", bundled_data);
-        return Ok(());
+    // Try multiple possible paths for bundled data
+    let possible_paths = vec![
+        resource_dir.join("resources").join("arduino-data"),
+        resource_dir.join("arduino-data"),
+        resource_dir.parent().and_then(|p| Some(p.join("Resources").join("arduino-data"))).unwrap_or_default(),
+    ];
+
+    let mut bundled_data = None;
+    for path in possible_paths {
+        eprintln!("Checking bundled data at: {:?}", path);
+        if path.exists() {
+            bundled_data = Some(path);
+            break;
+        }
     }
+
+    let bundled_data = match bundled_data {
+        Some(path) => path,
+        None => {
+            eprintln!("WARNING: Bundled arduino-data not found in any expected location");
+            eprintln!("Resource dir contents:");
+            if let Ok(entries) = std::fs::read_dir(&resource_dir) {
+                for entry in entries.flatten() {
+                    eprintln!("  - {:?}", entry.path());
+                }
+            }
+            return Ok(());
+        }
+    };
 
     eprintln!("Initializing bundled Arduino data from: {:?}", bundled_data);
     emit_progress(app, "initializing", 10, "Setting up Arduino environment...");

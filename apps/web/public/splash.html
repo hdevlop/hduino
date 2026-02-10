@@ -30,6 +30,10 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background: transparent;
+        }
+
+        body {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,9 +82,16 @@
         .lightning-border {
             position: relative;
             background: rgba(17, 24, 39, 0.98);
-            padding: 4px;
+            padding: 8px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            max-width: 288px;
+            max-height: 256px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .lightning-border::before {
@@ -88,7 +99,7 @@
             position: absolute;
             inset: 0;
             border-radius: 16px;
-            padding: 4px;
+            padding: 8px;
             background: linear-gradient(90deg, #8b9ff5, #996fc3, #f093fb, #667eea, #765794);
             background-size: 300% 300%;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -101,13 +112,19 @@
         .lightning-content {
             position: relative;
             background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
-            border-radius: 13px;
+            border-radius: 8px;
             padding: 0.75rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
-<body class="font-sans bg-transparent">
-    <div class="lightning-border animate-fade-in w-72 h-64">
+<body class="font-sans">
+    <div class="lightning-border animate-fade-in">
         <div class="lightning-content text-center">
             <div class="w-28 h-28 mx-auto mb-2 animate-logo-float">
                 <img src="icons/logo/logoH.png" alt="Hduino Logo" class="w-full h-full object-contain">

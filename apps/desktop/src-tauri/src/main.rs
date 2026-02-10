@@ -16,9 +16,13 @@ fn main() {
             const MIN_SPLASH_DURATION_MS: u64 = 4000; // Minimum 2 seconds
 
             // Get handles to both windows
-            let splash_window = app.get_webview_window("splash").unwrap();
-            let _ = splash_window.center();
-            let main_window = app.get_webview_window("main").unwrap();
+            let splash_window = app.get_webview_window("splash").expect("Failed to get splash window");
+            let main_window = app.get_webview_window("main").expect("Failed to get main window");
+
+            // Center splash window
+            if let Err(e) = splash_window.center() {
+                eprintln!("Failed to center splash window: {}", e);
+            }
 
             // Load splash screen URL (dev vs prod)
             #[cfg(dev)]
@@ -26,9 +30,18 @@ fn main() {
             #[cfg(not(dev))]
             let splash_url = "tauri://localhost/splash.html";
 
+            // Show splash window first
+            if let Err(e) = splash_window.show() {
+                eprintln!("Failed to show splash window: {}", e);
+            }
+
             // Navigate splash to the correct URL
-            if let Err(e) = splash_window.navigate(Url::parse(splash_url).unwrap()) {
+            println!("Loading splash screen from: {}", splash_url);
+            if let Err(e) = splash_window.navigate(Url::parse(splash_url).expect("Invalid splash URL")) {
                 eprintln!("Failed to load splash screen: {}", e);
+                // Fallback: show main window immediately if splash fails
+                let _ = main_window.show();
+                let _ = splash_window.close();
             }
 
             // Handle main window close event - quit the entire app
