@@ -60,3 +60,4 @@ next-env.d.ts
 *.dylib
 *.dll
 *.exe
+!**/src-tauri/binaries/*.exe
