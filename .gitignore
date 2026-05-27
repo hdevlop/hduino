@@ -61,3 +61,11 @@ next-env.d.ts
 *.dll
 *.exe
 !**/src-tauri/binaries/*.exe
+
+# large installer/archive files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.7z
+*.rar
