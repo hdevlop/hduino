@@ -17,6 +17,15 @@ Arduino.forBlock['serial_receive_byte'] = function (_block: Blockly.Block): [str
 };
 
 Arduino.forBlock['serial_write'] = function (block: Blockly.Block): string {
-  const argument0 = Arduino.valueToCode(block, 'SERIAL', Order.UNARY_POSTFIX);
-  return `Serial.write(${argument0});\n`;
+  const text = block.getFieldValue('TEXT');
+  const code = `'${text}'`;
+  return `Serial.write(${code});\n`;
+};
+
+Arduino.forBlock['serial_print'] = function (block: Blockly.Block): string {
+  const text = block.getFieldValue('TEXT');
+  const newline = block.getFieldValue('NEWLINE') === 'TRUE';
+  const code = Arduino.quote_(text);
+  const method = newline ? 'println' : 'print';
+  return `Serial.${method}(${code});\n`;
 };

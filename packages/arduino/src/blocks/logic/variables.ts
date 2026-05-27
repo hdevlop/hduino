@@ -192,3 +192,21 @@ Blockly.Blocks['io_VarOut'] = {
     this.setHelpUrl(Blockly.Msg.HELPURL);
   },
 };
+
+/**
+ * Block: io_Var
+ * Simple pin constant: const pin [var] = [pin]
+ */
+Blockly.Blocks['io_Var'] = {
+  init: function (this: Blockly.Block) {
+    this.appendDummyInput()
+      .appendField('const pin')
+      .appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLES_DEFAULT_NAME), 'VAR')
+      .appendField('=')
+      .appendField(new Blockly.FieldDropdown(Arduino.AllPins), 'PIN');
+    this.setColour(CATEGORY_COLORS.variables);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setTooltip('Declare a named pin constant');
+  },
+};

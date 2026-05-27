@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  transpilePackages: ["@hduino/arduino", "@hduino/platform"],
 };
 
 export default nextConfig;

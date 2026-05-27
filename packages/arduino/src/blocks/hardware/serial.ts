@@ -1,6 +1,5 @@
 import * as Blockly from 'blockly/core';
 import { CATEGORY_COLORS } from '../../theme';
-import { Types } from '../../arduino/types';
 
 Blockly.Blocks['serial_init'] = {
   init: function (this: Blockly.Block) {
@@ -44,18 +43,28 @@ Blockly.Blocks['serial_write'] = {
   init: function (this: Blockly.Block) {
     this.setHelpUrl(Blockly.Msg.TEXT_APPEND_HELPURL);
     this.setColour(CATEGORY_COLORS.telecom);
-    this.appendValueInput('SERIAL')
+    this.appendDummyInput()
       .appendField(new Blockly.FieldImage('/img/ico/serial.png', 60, 35))
-      .appendField('Serial Write');
+      .appendField('Serial Write')
+      .appendField(new Blockly.FieldTextInput('A'), 'TEXT');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    const thisBlock = this;
-    this.setTooltip(function () {
-      return Blockly.Msg.TEXT_APPEND_TOOLTIP.replace('%1',
-        thisBlock.getFieldValue('VAR'));
-    });
+    this.setTooltip('Write a single character to serial port');
   },
-  getVarType: function () {
-    return Types.TEXT;
+};
+
+Blockly.Blocks['serial_print'] = {
+  init: function (this: Blockly.Block) {
+    this.setHelpUrl(Blockly.Msg.TEXT_APPEND_HELPURL);
+    this.setColour(CATEGORY_COLORS.telecom);
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage('/img/ico/serial.png', 60, 35))
+      .appendField('Serial Print')
+      .appendField(new Blockly.FieldTextInput('Hello'), 'TEXT')
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'NEWLINE')
+      .appendField('\\n');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('Print text to serial port (check \\n for newline)');
   },
 };

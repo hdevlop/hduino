@@ -23,6 +23,15 @@ Arduino.forBlock['bluetooth_receive_byte'] = function (_block: Blockly.Block): [
 };
 
 Arduino.forBlock['bluetooth_write'] = function (block: Blockly.Block): string {
-  const argument0 = Arduino.valueToCode(block, 'BT', Order.UNARY_POSTFIX);
-  return `BT.write(${argument0});\n`;
+  const text = block.getFieldValue('TEXT');
+  const code = `'${text}'`;
+  return `BT.write(${code});\n`;
+};
+
+Arduino.forBlock['bluetooth_print'] = function (block: Blockly.Block): string {
+  const text = block.getFieldValue('TEXT');
+  const newline = block.getFieldValue('NEWLINE') === 'TRUE';
+  const code = Arduino.quote_(text);
+  const method = newline ? 'println' : 'print';
+  return `BT.${method}(${code});\n`;
 };

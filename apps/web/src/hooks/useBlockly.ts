@@ -68,6 +68,8 @@ export function useBlockly() {
     setupCustomDialogs();
     setWorkspace(ws);
 
+    const PIN_VAR_BLOCK_TYPES = ['io_VarIN', 'io_VarOut', 'io_Var'];
+
     ws.addChangeListener((event: Blockly.Events.Abstract) => {
       if (event.type === Blockly.Events.VAR_CREATE) {
         const currentCategory = useEditorStore.getState().selectedCategory;
@@ -94,6 +96,29 @@ export function useBlockly() {
         }
         // Refresh blocks with variable-dependent fields
         useEditorStore.getState().refreshVariableFields();
+      }
+
+      // Refresh all pin dropdowns when pin variable blocks (io_VarIN/io_VarOut) change
+      if (event.type === Blockly.Events.BLOCK_CREATE) {
+        const json = (event as any).json;
+        if (json && PIN_VAR_BLOCK_TYPES.includes(json.type)) {
+          useEditorStore.getState().refreshVariableFields();
+        }
+      }
+      if (event.type === Blockly.Events.BLOCK_DELETE) {
+        const oldJson = (event as any).oldJson;
+        if (oldJson && PIN_VAR_BLOCK_TYPES.includes(oldJson.type)) {
+          useEditorStore.getState().refreshVariableFields();
+        }
+      }
+      if (event.type === Blockly.Events.BLOCK_CHANGE) {
+        const changeEvent = event as Blockly.Events.BlockChange;
+        if (changeEvent.blockId) {
+          const block = ws.getBlockById(changeEvent.blockId);
+          if (block && PIN_VAR_BLOCK_TYPES.includes(block.type)) {
+            useEditorStore.getState().refreshVariableFields();
+          }
+        }
       }
 
       if (event.type === 'click') {

@@ -1,7 +1,6 @@
 import * as Blockly from 'blockly/core';
 import { CATEGORY_COLORS } from '../../theme';
 import { Arduino } from '../../arduino/boards';
-import { Types } from '../../arduino/types';
 
 Blockly.Blocks['bluetooth_init'] = {
   init: function (this: Blockly.Block) {
@@ -49,18 +48,29 @@ Blockly.Blocks['bluetooth_write'] = {
   init: function (this: Blockly.Block) {
     this.setHelpUrl(Blockly.Msg.TEXT_APPEND_HELPURL);
     this.setColour(CATEGORY_COLORS.telecom);
-    this.appendValueInput('BT')
+    this.appendDummyInput()
       .appendField(new Blockly.FieldImage('/img/ico/Bluetooth.png', 35, 35))
-      .appendField('bluetooth Write');
+      .appendField('Bluetooth Write')
+      .appendField(new Blockly.FieldTextInput('A'), 'TEXT');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    const thisBlock = this;
-    this.setTooltip(function () {
-      return Blockly.Msg.TEXT_APPEND_TOOLTIP.replace('%1',
-        thisBlock.getFieldValue('VAR'));
-    });
+    this.setTooltip('Write a single character to bluetooth');
   },
-  getVarType: function () {
-    return Types.TEXT;
+};
+
+Blockly.Blocks['bluetooth_print'] = {
+  init: function (this: Blockly.Block) {
+    this.setHelpUrl(Blockly.Msg.TEXT_APPEND_HELPURL);
+    this.setColour(CATE
+      GORY_COLORS.telecom);
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage('/img/ico/Bluetooth.png', 35, 35))
+      .appendField('Bluetooth Print')
+      .appendField(new Blockly.FieldTextInput('Hello'), 'TEXT')
+      .appendField(new Blockly.FieldCheckbox('FALSE'), 'NEWLINE')
+      .appendField('\\n');
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip('Print text to bluetooth (check \\n for newline)');
   },
 };

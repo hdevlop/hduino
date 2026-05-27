@@ -127,3 +127,17 @@ Arduino.forBlock['io_2Var'] = function(block: Blockly.Block): string {
   Arduino.variables_[varName1] = 'const int ' + varName1 + ' = ' + pin1 + ';';
   return '';
 };
+
+/**
+ * Generator: io_Var
+ * Declares a const int pin variable
+ */
+Arduino.forBlock['io_Var'] = function(block: Blockly.Block): string {
+  const varName = Arduino.nameDB_.getName(
+    block.getFieldValue('VAR'),
+    Blockly.Names.NameType.VARIABLE
+  );
+  const pin = block.getFieldValue('PIN') || '0';
+  Arduino.variables_[varName] = 'const int ' + varName + ' = ' + pin + ';';
+  return '';
+};

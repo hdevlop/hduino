@@ -47,17 +47,10 @@ export function variablesFlyoutCallback(
     ...(firstVarId && { fields: { VAR: { id: firstVarId } } }),
   });
 
-  // Add io_VarIN block (INPUT pin constant)
+  // Add io_Var block (simple pin constant declaration)
   xmlList.push({
     kind: 'block',
-    type: 'io_VarIN',
-    ...(firstVarId && { fields: { VAR: { id: firstVarId } } }),
-  });
-
-  // Add io_VarOut block (OUTPUT pin constant)
-  xmlList.push({
-    kind: 'block',
-    type: 'io_VarOut',
+    type: 'io_Var',
     ...(firstVarId && { fields: { VAR: { id: firstVarId } } }),
   });
 

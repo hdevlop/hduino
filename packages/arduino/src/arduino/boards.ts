@@ -394,6 +394,25 @@ export function getAllPinsAnalog(): [string, string][] {
 }
 
 /**
+ * Get pin variable names from io_VarIN/io_VarOut/io_Var blocks in the workspace
+ */
+function getPinVariableNames(workspace: any): [string, string][] {
+  const names: [string, string][] = [];
+  const pinBlocks = [
+    ...workspace.getBlocksByType('io_VarIN', false),
+    ...workspace.getBlocksByType('io_VarOut', false),
+    ...workspace.getBlocksByType('io_Var', false),
+  ];
+  for (const block of pinBlocks) {
+    const name = block.getField('VAR')?.getText();
+    if (name && name.trim()) {
+      names.push([name, name]);
+    }
+  }
+  return names;
+}
+
+/**
  * Arduino namespace for Blockly compatibility
  * Provides access to board data and utilities for blocks
  */
@@ -466,6 +485,14 @@ export const Arduino = {
           break;
         default:
           pins = [];
+      }
+
+      // Append pin variable names from io_VarIN/io_VarOut blocks
+      if (workspace && pinType !== 'onlyVar') {
+        const pinVarNames = getPinVariableNames(workspace);
+        if (pinVarNames.length > 0) {
+          pins = [...pins, ...pinVarNames];
+        }
       }
 
       if (pins.length > 0 && field.menuGenerator_) {

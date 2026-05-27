@@ -178,14 +178,29 @@ const motorsCategory: ToolboxCategory = {
   contents: [servoSubcategory, l293Subcategory, l293ShieldSubcategory, l298Subcategory],
 };
 
+const relayBoardSubcategory: ToolboxCategory = {
+  kind: 'category',
+  name: 'Relay Board',
+  toolboxitemid: 'RELAY_BOARD',
+  colour: CATEGORY_COLORS.switch,
+  cssConfig: { container: 'Category', icon: 'customTreeIcon switch' },
+  contents: [
+    { kind: 'block', type: 'relay_board_init' },
+    { kind: 'block', type: 'relay_board_control' },
+  ],
+};
+
 const switchCategory: ToolboxCategory = {
   kind: 'category',
   name: 'Switch',
   toolboxitemid: 'SWITCH',
   colour: CATEGORY_COLORS.switch,
+  expanded: 'false',
   cssConfig: { container: 'Category', icon: 'customTreeIcon switch' },
   contents: [
     { kind: 'block', type: 'switch_button_read' },
+    { kind: 'block', type: 'switch_relay' },
+    relayBoardSubcategory,
     { kind: 'block', type: 'io_highlow' },
   ],
 };
@@ -201,10 +216,12 @@ const telecomCategory: ToolboxCategory = {
     { kind: 'block', type: 'serial_receive' },
     { kind: 'block', type: 'serial_receive_byte' },
     { kind: 'block', type: 'serial_write' },
+    { kind: 'block', type: 'serial_print' },
     { kind: 'block', type: 'bluetooth_init' },
     { kind: 'block', type: 'bluetooth_receive' },
     { kind: 'block', type: 'bluetooth_receive_byte' },
     { kind: 'block', type: 'bluetooth_write' },
+    { kind: 'block', type: 'bluetooth_print' },
   ],
 };
 
